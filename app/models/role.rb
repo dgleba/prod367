@@ -1,6 +1,6 @@
 class Role < ActiveRecord::Base
 
-  self.table_name = "roles_dc"
+  self.table_name = "roles"
   
   has_many :users
   

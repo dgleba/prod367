@@ -17,9 +17,9 @@ Bundler.require(*Rails.groups)
 ENV['RAILS_ADMIN_THEME'] = 'material'
     
 puts '___1____'
-puts ENV.inspect
+#puts ENV.inspect
 
-module HRapp361
+module Prod367
   class Application < Rails::Application
   
     #config # https://github.com/laserlemon/figaro/issues/186

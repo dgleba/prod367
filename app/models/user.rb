@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
 
   has_paper_trail  class_name: 'PapertrailTable'
 
-  self.table_name = "users_dc"
+  self.table_name = "users"
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable,  and :omniauthable , :timeoutable

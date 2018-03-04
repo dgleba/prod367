@@ -11,6 +11,8 @@
 # http://github.com/RailsApps/rails-composer/issues
 #----------------------------------------------------------------------------
 
+# Ignore application configuration
+/config/application.yml
 /config/puma.rb
 # add /config/database.yml if it contains passwords
 /config/ldap.yml
@@ -162,5 +164,3 @@ pickle-email-*.html
 !/log/.keep
 /tmp
 
-# Ignore application configuration
-/config/application.yml

@@ -1,50 +1,53 @@
 
 This app was started by copying lpa346 on 2017-12-08_Fri_22.32-PM.
    git clone https://github.com/dgleba/lpa346.git hrapp361
-
+Then by copy of hrapp361 on 2018-03-03
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Title:  .  version controlled.
 
------------------------2017-05-15[May-Mon]08-54AM
+-----------------------2018-03-04
 
 Script for scaffold:
 
 # create support tables first..
 
-rails destroy scaffold StfEmployee
-
-rails g scaffold Employee  name clock active_status:integer sort:integer  --no-migration \
- -f
  
-rails generate scaffold DcLevel name:string active_status:integer sort_order:integer comment --no-migration
-   -f
-   
-rails generate scaffold DcStream name:string active_status:integer sort_order:integer comment --no-migration
+rails generate model StfAsset --no-migration
   -f
 
 # Then create parent tables.
 
-rails generate scaffold DcDiscipline  title \
-date_discipline:date employee:references  discipline_by dc_level:references dc_stream:references infraction_description:text \
-dc_action:text dc_comment:text output:text \
+# name is brief problem title / name
+
+rails generate scaffold MorningMeeting  name   priority machine problem_description running responsibility timing_plan_for_repair:text  \
+ folloup_comments:text  is_closed \
 sort_order:integer active_status:integer   \
  -f
 
 
-# parking..
+ 
+ 
+ Initial Date of Issue	
+ Current Date
+ Machine ID/ Description
+ Product Line	
+ Problem Description	
+ Running (Y/N)	
+ Responsibility	
+ Timing/Plan for Repair	
+ Follow Up/Comments	
+ Priority (Green - LO/ Yellow - Med / Red - High)
+ Open or Closed
 
 
-rails generate scaffold PpParkingpass title  \
-  employee:references parking_pass:string dept:string company:string grouping:string en_status:string \
-  supervisor:string en_name:string en_clock:string \
-  --no-migration
-  -f
+  
 
 
-
-
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -63,6 +66,28 @@ old..
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+rails destroy scaffold StfEmployee
+
+rails g scaffold Employee  name clock active_status:integer sort:integer  --no-migration \
+ -f
+ 
+rails generate scaffold DcLevel name:string active_status:integer sort_order:integer comment --no-migration
+   -f
+  
+# parking..
+
+
+rails generate scaffold PpParkingpass title  \
+  employee:references parking_pass:string dept:string company:string grouping:string en_status:string \
+  supervisor:string en_name:string en_clock:string \
+  --no-migration
+  -f
+
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -136,9 +161,6 @@ rails generate scaffold ProductFeature name:string product:references pfeature:r
 
 rails generate scaffold AuditCount  process_step  num_audits:integer --no-migration
 
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

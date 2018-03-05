@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 50161230223308) do
+ActiveRecord::Schema.define(version: 50161230223319) do
+
+  create_table "morning_meetings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.string   "priority"
+    t.string   "machine_id"
+    t.string   "problem_description"
+    t.string   "running"
+    t.string   "responsibility"
+    t.text     "timing_plan_for_repair", limit: 65535
+    t.text     "followup_comments",      limit: 65535
+    t.string   "is_closed"
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+  end
 
   create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"

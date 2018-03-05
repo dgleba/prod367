@@ -1,0 +1,49 @@
+
+<p>
+  <strong>Name:</strong>
+  <%= @morning_meeting.name %>
+</p>
+
+<p>
+  <strong>Priority:</strong>
+  <%= @morning_meeting.priority %>
+</p>
+
+<p>
+  <strong>Machine:</strong>
+  <%= @morning_meeting.machine_id %>
+</p>
+
+<p>
+  <strong>Problem description:</strong>
+  <%= @morning_meeting.problem_description %>
+</p>
+
+<p>
+  <strong>Running:</strong>
+  <%= @morning_meeting.running %>
+</p>
+
+<p>
+  <strong>Responsibility:</strong>
+  <%= @morning_meeting.responsibility %>
+</p>
+
+<p>
+  <strong>Timing plan for repair:</strong>
+  <%= @morning_meeting.timing_plan_for_repair %>
+</p>
+
+<p>
+  <strong>Followup comments:</strong>
+  <%= @morning_meeting.followup_comments %>
+</p>
+
+<p>
+  <strong>Is closed:</strong>
+  <%= @morning_meeting.is_closed %>
+</p>
+
+<br>
+<%= link_to 'Edit', edit_morning_meeting_path(@morning_meeting), class: "btn btn-primary", :style=>'color:#FFFFFF;' %> &nbsp &nbsp
+<%= link_to 'Back', morning_meetings_path, class: "btn btn-default" %>

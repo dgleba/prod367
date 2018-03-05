@@ -1,0 +1,19 @@
+<%= simple_form_for(@morning_meeting) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :priority %>
+    <%= f.input :machine_id %>
+    <%= f.input :problem_description %>
+    <%= f.input :running %>
+    <%= f.input :responsibility %>
+    <%= f.input :timing_plan_for_repair %>
+    <%= f.input :followup_comments %>
+    <%= f.input :is_closed %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn btn-success'%>
+  </div>
+<% end %>

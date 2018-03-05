@@ -1,0 +1,76 @@
+
+<row class="row is-table-row" >
+
+  <div class="col-sm-1 ">
+    <%= link_to 'Create', new_morning_meeting_path , class: "btn btn-success"%>
+  </div>
+
+  <div class="col-sm-2 ">
+    <h4>Listing Morning Meetings</h4>
+  </div>
+
+  <div class="col-sm-3">
+    <%= search_form_for @q, class: 'search-form' do |f| %>
+      <div class="input-group">
+        <%= f.search_field :name_cont, class: 'form-control' %>
+        <span class="input-group-btn">
+          <button class="btn btn-primary">Search <i class="fa fa-search"></i>
+          </button>
+        </span>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="col-sm-4 ">
+    <%= paginate @morning_meetings %>
+  </div>
+  
+  <div class="col-sm-2 ">
+    <%= page_entries_info @morning_meetings, :entry_name => 'item' %>
+  </div>
+  
+</row>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th colspan="1"></th>
+            <th>Name</th>
+      <th>Priority</th>
+      <th>Machine</th>
+      <th>Problem description</th>
+      <th>Running</th>
+      <th>Responsibility</th>
+      <th>Timing plan for repair</th>
+      <th>Followup comments</th>
+      <th>Is closed</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @morning_meetings.each do |morning_meeting| %>
+      <tr>
+        <td>
+          <div class="btn-group">
+          <%= link_to 'Show', morning_meeting, class: "btn btn-info", :style=>'color:#FFFFFF;' %>
+          <%= link_to 'Edit', edit_morning_meeting_path(morning_meeting), class: "btn btn-primary", :style=>'color:#FFFFFF;' %>
+          <%= link_to 'Destroy', morning_meeting, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning", :style=>'color:#FFFFFF;' %>
+          </div>
+        </td>
+        
+        <td><%= morning_meeting.name %></td>
+        <td><%= morning_meeting.priority %></td>
+        <td><%= morning_meeting.machine_id %></td>
+        <td><%= morning_meeting.problem_description %></td>
+        <td><%= morning_meeting.running %></td>
+        <td><%= morning_meeting.responsibility %></td>
+        <td><%= morning_meeting.timing_plan_for_repair %></td>
+        <td><%= morning_meeting.followup_comments %></td>
+        <td><%= morning_meeting.is_closed %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

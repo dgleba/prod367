@@ -13,6 +13,7 @@ Script for scaffold:
 
 # create support tables first..
 
+
  
 rails generate model StfAsset --no-migration
   -f
@@ -21,10 +22,11 @@ rails generate model StfAsset --no-migration
 
 # name is brief problem title / name
 
-rails generate scaffold MorningMeeting  name   priority machine problem_description running responsibility timing_plan_for_repair:text  \
- folloup_comments:text  is_closed \
-sort_order:integer active_status:integer   \
- -f
+ 
+rails destroy scaffold MorningMeeting 
+
+rails generate scaffold MorningMeeting  name   priority machine_id problem_description running responsibility timing_plan_for_repair:text  \
+ followup_comments:text  is_closed -f
 
 
  
@@ -43,6 +45,8 @@ sort_order:integer active_status:integer   \
 
 
   
+CREATE VIEW `vw_eam_asset_lps` AS select * from lukup_pub.vw_asset_eam_lp
+
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -13,17 +13,24 @@
   <% end %>
   
   <div class="form-group">
-            <%= f.label :name, class: "col-sm-2 control-label" %>
-        <div class="col-sm-10">
+            <%#= f.label :name, class: "col-sm-2 control-label" %>
+            <%=  label_tag  'name', 'Title', class:    "col-sm-2 control-label" %>
+      <div>
+      <span>&nbsp;&nbsp;&nbsp;&nbsp; A very short title for this issue..</span>
+      </div>
+            
+      <div class="col-sm-10">
         <%= f.text_field :name, class: "form-control" %>
       </div>
-        </div>
+  </div>
+
   <div class="form-group">
             <%= f.label :priority, class: "col-sm-2 control-label" %>
         <div class="col-sm-10">
         <%= f.text_field :priority, class: "form-control" %>
       </div>
         </div>
+        
   <div class="form-group">
             <%= f.label :machine_id, class: "col-sm-2 control-label" %>
         <div class="col-sm-10">
@@ -32,6 +39,7 @@
 
       </div>
         </div>
+        
   <div class="form-group">
             <%= f.label :problem_description, class: "col-sm-2 control-label" %>
         <div class="col-sm-10">
@@ -62,16 +70,16 @@
         <%= f.text_area :followup_comments, class: "form-control" %>
       </div>
         </div>
+        
   <div class="form-group">
             <%= f.label :is_closed, class: "col-sm-2 control-label" %>
         <div class="col-sm-10">
         <%#= f.text_field :is_closed, class: "form-control" %>
          
-    <%= f.label :is_closed, "Yes", :value => "Yes"  %>
-    <%= f.radio_button :is_closed, true %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <%= f.label :is_closed, "No", :value => "No " %>
-    <%= f.radio_button :is_closed, false, :checked => true %>
-
+        <%= f.label :is_closed, "Yes", :value => "Yes"  %>
+        <%= f.radio_button :is_closed, true %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <%= f.label :is_closed, "No", :value => "No " %>
+        <%= f.radio_button :is_closed, false %>
  
       </div>
         </div>

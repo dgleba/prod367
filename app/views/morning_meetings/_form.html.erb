@@ -1,19 +1,77 @@
-<%= simple_form_for(@morning_meeting) do |f| %>
-  <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :priority %>
-    <%= f.input :machine_id %>
-    <%= f.input :problem_description %>
-    <%= f.input :running %>
-    <%= f.input :responsibility %>
-    <%= f.input :timing_plan_for_repair %>
-    <%= f.input :followup_comments %>
-    <%= f.input :is_closed %>
-  </div>
+<%= form_for(@morning_meeting, html: { class: "form-horizontal", role: "form" }) do |f| %>
+  <% if @morning_meeting.errors.any? %>
+    <div class="alert alert-danger alert-dismissable" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <h4><%= pluralize(@morning_meeting.errors.count, "error") %> prohibited this morning_meeting from being saved:</h4>
+      <ul>
+      <% @morning_meeting.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="form-group">
+            <%= f.label :name, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+        </div>
+  <div class="form-group">
+            <%= f.label :priority, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.text_field :priority, class: "form-control" %>
+      </div>
+        </div>
+  <div class="form-group">
+            <%= f.label :machine_id, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%#= f.text_field :machine_id, class: "form-control" %>
+        <%= f.autocomplete_field :machine_id, autocomplete_vw_eam_asset_asset_title_morning_meetings_path , 'min-length' => 1 , 'data-auto-focus' => true %>
 
-  <div class="form-actions">
-    <%= f.button :submit, class: 'btn btn-success'%>
+      </div>
+        </div>
+  <div class="form-group">
+            <%= f.label :problem_description, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.text_field :problem_description, class: "form-control" %>
+      </div>
+        </div>
+  <div class="form-group">
+            <%= f.label :running, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.text_field :running, class: "form-control" %>
+      </div>
+        </div>
+  <div class="form-group">
+            <%= f.label :responsibility, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.text_field :responsibility, class: "form-control" %>
+      </div>
+        </div>
+  <div class="form-group">
+            <%= f.label :timing_plan_for_repair, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.text_area :timing_plan_for_repair, class: "form-control" %>
+      </div>
+        </div>
+  <div class="form-group">
+            <%= f.label :followup_comments, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.text_area :followup_comments, class: "form-control" %>
+      </div>
+        </div>
+  <div class="form-group">
+            <%= f.label :is_closed, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.text_field :is_closed, class: "form-control" %>
+      </div>
+        </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
   </div>
 <% end %>

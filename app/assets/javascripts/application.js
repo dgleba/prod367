@@ -18,6 +18,8 @@
 //= require cocoon
 //= require tether
 //= require bootstrap
+ //= require jquery-ui/autocomplete 
+ //= require autocomplete-rails
 //= require_tree .
 //= areyousure/jquery.are-you-sure
 //= maximize-select2-height_dg/maximizeSelect2Height

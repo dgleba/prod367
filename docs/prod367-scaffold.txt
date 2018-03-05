@@ -15,7 +15,8 @@ Script for scaffold:
 
 
  
-rails generate model StfAsset --no-migration
+#rails generate model StfAsset --no-migration
+rails generate model VwEamAsset --no-migration
   -f
 
 # Then create parent tables.
@@ -43,10 +44,11 @@ rails generate scaffold MorningMeeting  name   priority machine_id problem_descr
  Priority (Green - LO/ Yellow - Med / Red - High)
  Open or Closed
 
+ 
+ 
+CREATE or replace VIEW `vw_eam_assets` AS select *, concat(`Asset`, ', ' ,`Description`, ', ' , `Department`, ', Col:', `Location`) as asset_title from lukup_pub.vw_asset_eam_lp
 
-  
-CREATE VIEW `vw_eam_asset_lps` AS select * from lukup_pub.vw_asset_eam_lp
-
+ 
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

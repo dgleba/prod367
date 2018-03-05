@@ -7,6 +7,9 @@
           <title><%= Rails.application.class.parent_name %></title>
           <%= stylesheet_link_tag    'application', media: 'all' %>
           <%= javascript_include_tag 'application' %>
+
+          <%= javascript_include_tag "autocomplete-rails.js" %>
+  
           <%= csrf_meta_tags %>
         </meta>
       </meta>
@@ -28,7 +31,7 @@
           <ul class="nav navbar-nav">
             <li>
               <!-- <%#[note the comment]= link_to 'Products', products_path %> -->
-              <%# = link_to 'Discipline', dc_disciplines_path %> 
+              <%= link_to 'MorningMeetingIssues', morning_meetings_path %> 
             </li>
           </ul>
 

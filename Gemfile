@@ -81,3 +81,7 @@ gem 'enum_help'
 #
 gem 'signature-pad-rails'
 gem 'paper_trail'
+# https://github.com/bigtunacan/rails-jquery-autocomplete
+# https://github.com/yifeiwu/rails4-autocomplete-demo
+gem 'rails-jquery-autocomplete'
+gem 'jquery-ui-rails'

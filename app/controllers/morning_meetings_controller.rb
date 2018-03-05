@@ -5,6 +5,7 @@ before_filter :authenticate_user!
   #cancancan
   load_and_authorize_resource
 
+  autocomplete :vw_eam_asset, :asset_title, :full => true
 
   # cancancan..
   #load_and_authorize_resource :morning_meeting

@@ -5,9 +5,7 @@ before_filter :authenticate_user!
   #cancancan
   load_and_authorize_resource
 
-
-  # cancancan..
-  #load_and_authorize_resource :morning_meeting
+  autocomplete :vw_eam_asset, :asset_title, :full => true
 
   # GET /morning_meetings
   def index

@@ -85,3 +85,4 @@ gem 'paper_trail'
 # https://github.com/yifeiwu/rails4-autocomplete-demo
 gem 'rails-jquery-autocomplete'
 gem 'jquery-ui-rails'
+gem 'autosize'

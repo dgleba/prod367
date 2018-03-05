@@ -30,6 +30,7 @@ rails generate scaffold MorningMeeting  name   priority machine_id problem_descr
  followup_comments:text  is_closed -f
 
 
+
  
  
  Initial Date of Issue	

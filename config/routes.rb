@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
  
-  resources :morning_meetings
+
+
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   # resources :morning_meetings
@@ -8,7 +10,6 @@ Rails.application.routes.draw do
     get :autocomplete_vw_eam_asset_asset_title, :on => :collection
   end
   # root "pets#index"
-
 
 
   # mount RailsAdmin::Engine => '/radmin', as: 'rails_admin'

@@ -3,7 +3,7 @@ FactoryGirl.define do
     name "MyString"
     priority "MyString"
     machine_id "MyString"
-    problem_description "MyString"
+    problem_description "MyText"
     running "MyString"
     responsibility "MyString"
     timing_plan_for_repair "MyText"

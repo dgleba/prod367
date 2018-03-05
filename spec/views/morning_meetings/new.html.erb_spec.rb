@@ -6,7 +6,7 @@ RSpec.describe "morning_meetings/new", type: :view do
       :name => "MyString",
       :priority => "MyString",
       :machine_id => "MyString",
-      :problem_description => "MyString",
+      :problem_description => "MyText",
       :running => "MyString",
       :responsibility => "MyString",
       :timing_plan_for_repair => "MyText",
@@ -26,7 +26,7 @@ RSpec.describe "morning_meetings/new", type: :view do
 
       assert_select "input#morning_meeting_machine_id[name=?]", "morning_meeting[machine_id]"
 
-      assert_select "input#morning_meeting_problem_description[name=?]", "morning_meeting[problem_description]"
+      assert_select "textarea#morning_meeting_problem_description[name=?]", "morning_meeting[problem_description]"
 
       assert_select "input#morning_meeting_running[name=?]", "morning_meeting[running]"
 

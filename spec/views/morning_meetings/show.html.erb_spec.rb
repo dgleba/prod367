@@ -6,7 +6,7 @@ RSpec.describe "morning_meetings/show", type: :view do
       :name => "Name",
       :priority => "Priority",
       :machine_id => "Machine",
-      :problem_description => "Problem Description",
+      :problem_description => "MyText",
       :running => "Running",
       :responsibility => "Responsibility",
       :timing_plan_for_repair => "MyText",
@@ -20,7 +20,7 @@ RSpec.describe "morning_meetings/show", type: :view do
     expect(rendered).to match(/Name/)
     expect(rendered).to match(/Priority/)
     expect(rendered).to match(/Machine/)
-    expect(rendered).to match(/Problem Description/)
+    expect(rendered).to match(/MyText/)
     expect(rendered).to match(/Running/)
     expect(rendered).to match(/Responsibility/)
     expect(rendered).to match(/MyText/)

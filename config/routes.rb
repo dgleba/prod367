@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
  
+  resources :morning_meetings
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   # resources :morning_meetings

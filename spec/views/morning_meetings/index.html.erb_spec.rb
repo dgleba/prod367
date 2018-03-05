@@ -7,7 +7,7 @@ RSpec.describe "morning_meetings/index", type: :view do
         :name => "Name",
         :priority => "Priority",
         :machine_id => "Machine",
-        :problem_description => "Problem Description",
+        :problem_description => "MyText",
         :running => "Running",
         :responsibility => "Responsibility",
         :timing_plan_for_repair => "MyText",
@@ -18,7 +18,7 @@ RSpec.describe "morning_meetings/index", type: :view do
         :name => "Name",
         :priority => "Priority",
         :machine_id => "Machine",
-        :problem_description => "Problem Description",
+        :problem_description => "MyText",
         :running => "Running",
         :responsibility => "Responsibility",
         :timing_plan_for_repair => "MyText",
@@ -33,7 +33,7 @@ RSpec.describe "morning_meetings/index", type: :view do
     assert_select "tr>td", :text => "Name".to_s, :count => 2
     assert_select "tr>td", :text => "Priority".to_s, :count => 2
     assert_select "tr>td", :text => "Machine".to_s, :count => 2
-    assert_select "tr>td", :text => "Problem Description".to_s, :count => 2
+    assert_select "tr>td", :text => "MyText".to_s, :count => 2
     assert_select "tr>td", :text => "Running".to_s, :count => 2
     assert_select "tr>td", :text => "Responsibility".to_s, :count => 2
     assert_select "tr>td", :text => "MyText".to_s, :count => 2

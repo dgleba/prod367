@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 50161230223319) do
     t.string   "name"
     t.string   "priority"
     t.string   "machine_id"
-    t.string   "problem_description"
+    t.text     "problem_description",    limit: 65535
     t.string   "running"
     t.string   "responsibility"
     t.text     "timing_plan_for_repair", limit: 65535

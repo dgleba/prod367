@@ -11,6 +11,8 @@ before_filter :authenticate_user!
   def index
     @q = @morning_meetings.search params[:q]
     @morning_meetings = @q.result.page(params[:page])
+    # scope for is_closed - see model.
+    @morning_meetings = @morning_meetings.closeditems(params[:closeditems]) if params[:closeditems].present?
   end
 
   # GET /morning_meetings/1

@@ -5,8 +5,24 @@ before_filter :authenticate_user!
   #cancancan
   load_and_authorize_resource
 
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
   autocomplete :vw_eam_asset, :asset_title, :full => true,  :limit => 30 
 
+  
+  def reset_reviewed
+    # no - use the model method..
+    # Pfeature.update_all(
+      # ActiveRecord::Base.send(:sanitize_sql_for_assignment, {:name => "'color_wow'"})
+    # )
+
+    # reset all colors to colorWow
+    MorningMeeting.reset_reviewed_sql
+  end
+ 
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ 
   # GET /morning_meetings
   def index
     @q = @morning_meetings.search params[:q]
@@ -14,6 +30,10 @@ before_filter :authenticate_user!
     
     # scope for is_closed - see model.
     @morning_meetings = @morning_meetings.closeditemsnot(params[:closeditemsnot]) if params[:closeditemsnot].present?
+
+    # scope for isclosed and reviewed_mark - see model.
+    @morning_meetings = @morning_meetings.notreviewed(params[:notreviewed]) if params[:notreviewed].present?
+
     
   end
 
@@ -68,6 +88,6 @@ before_filter :authenticate_user!
 
   # Only allow a trusted parameter "white list" through.
   def morning_meeting_params
-    params.require(:morning_meeting).permit(:name, :priority, :machine_id, :problem_description, :running, :responsibility, :timing_plan_for_repair, :followup_comments, :is_closed)
+    params.require(:morning_meeting).permit(:name, :priority, :machine_id, :problem_description, :running, :responsibility, :timing_plan_for_repair, :followup_comments, :is_closed, :reviewed_mark)
   end
 end

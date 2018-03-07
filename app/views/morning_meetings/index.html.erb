@@ -35,6 +35,11 @@
   <div class="col-sm-2 ">
     <%= page_entries_info @morning_meetings, :entry_name => 'item' %>
   </div>
+
+  <div class="col-sm-1 ">
+  <%= button_to  'Reset Reviewed', morning_meetings_reset_reviewed_path, method: :get, data: { Confirm: "Are you really sure you want to reset all the reviewed complete flags?" }  %>
+  </div>
+
   
 </row>
 

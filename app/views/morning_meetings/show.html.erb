@@ -44,6 +44,11 @@
   <%= @morning_meeting.is_closed %>
 </p>
 
+<p>
+  <strong>Reviewed Mark:</strong>
+  <%= @morning_meeting.reviewed_mark %>
+</p>
+
 <br>
 <%= link_to 'Edit', edit_morning_meeting_path(@morning_meeting), class: "btn btn-primary", :style=>'color:#FFFFFF;' %> &nbsp &nbsp
 <%= link_to 'Back', morning_meetings_path, class: "btn btn-default" %>

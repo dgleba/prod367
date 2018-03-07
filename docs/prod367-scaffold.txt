@@ -47,9 +47,7 @@ rails generate scaffold MorningMeeting  name   priority machine_id problem_descr
 
  
  
-CREATE or replace VIEW `vw_eam_assets` AS select *, concat(`Asset`, ', ' ,`Description`, ', ' , `Department`, ', Col:', `Location`) as asset_title from lukup_pub.vw_asset_eam_lp
 
- 
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

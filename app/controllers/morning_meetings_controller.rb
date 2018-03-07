@@ -5,14 +5,16 @@ before_filter :authenticate_user!
   #cancancan
   load_and_authorize_resource
 
-  autocomplete :vw_eam_asset, :asset_title, :full => true
+  autocomplete :vw_eam_asset, :asset_title, :full => true,  :limit => 30 
 
   # GET /morning_meetings
   def index
     @q = @morning_meetings.search params[:q]
     @morning_meetings = @q.result.page(params[:page])
+    
     # scope for is_closed - see model.
-    @morning_meetings = @morning_meetings.closeditems(params[:closeditems]) if params[:closeditems].present?
+    @morning_meetings = @morning_meetings.closeditemsnot(params[:closeditemsnot]) if params[:closeditemsnot].present?
+    
   end
 
   # GET /morning_meetings/1

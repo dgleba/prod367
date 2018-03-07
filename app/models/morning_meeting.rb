@@ -1,12 +1,18 @@
 class MorningMeeting < ApplicationRecord
 
-  validates_presence_of :is_closed
-  validates_presence_of :machine_id
+  #validates_presence_of :is_closed
+  validates_presence_of :machine_id, :running
 
   # https://www.justinweiss.com/articles/search-and-filter-rails-models-without-bloating-your-controller/
   #   http://pmdsdata:3001/morning_meetings?closeditems=false
-  scope :closeditems, -> (param1) { where("is_closed like ?", "#{param1}%")}
+  # works scope :closeditems, -> (param1) { where("is_closed like ?", "#{param1}%")}
+  scope :closeditemsnot, -> (param1) { where.not("is_closed like ?", "#{param1}")}
 
+  # idea for date updated before today. rails scope updated_at before today
+  # Model.where("created_at >= ?", Date.today)
+  
+  
+  
   # Other notes ..
   # scope :status_open, -> (status_open) { where status: status }
   # http://aspiringwebdev.com/use-activerecord-scopes-not-class-methods-in-rails-to-avoid-errors/

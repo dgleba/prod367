@@ -55,9 +55,9 @@ ActiveRecord::Schema.define(version: 50161230223319) do
     t.string   "responsibility"
     t.text     "timing_plan_for_repair", limit: 65535
     t.text     "followup_comments",      limit: 65535
-    t.string   "is_closed"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.string   "is_closed",                            default: "no"
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
     t.integer  "reviewed_mark"
   end
 

@@ -1,5 +1,7 @@
 class MorningMeeting < ApplicationRecord
 
+  has_paper_trail  class_name: 'PapertrailTable'
+
   #validates_presence_of :is_closed
   validates_presence_of :machine_id, :running
 

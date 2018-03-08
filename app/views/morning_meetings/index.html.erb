@@ -12,7 +12,8 @@
   <div class="col-sm-3">
     <%= search_form_for @q, class: 'search-form' do |f| %>
       <div class="input-group">
-        <%= f.search_field :name_cont, class: 'form-control' %>
+        <%#= f.search_field :name_cont, class: 'form-control' %>
+        <%= f.search_field text1_morning_meetings_cont, class: 'form-control' %>
         <span class="input-group-btn">
           <button class="btn btn-primary">Search <i class="fa fa-search"></i>
           </button>

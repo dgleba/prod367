@@ -22,7 +22,7 @@ RailsAdmin.config do |config|
   # # https://github.com/sferik/rails_admin/wiki/Models
 
   config.main_app_name = Proc.new {
-    ["HRapp361", "(#{Time.zone.now.to_s(:time)})"]
+    ["Prod367", "(#{Time.zone.now.to_s(:time)})"]
   }
   
   config.total_columns_width = 9999999
@@ -43,7 +43,7 @@ RailsAdmin.config do |config|
   # config.authorize_with :pundit
 
   ## == PaperTrail ==
-   # config.audit_with :paper_trail, 'User', 'PaperTrail::Version' # PaperTrail >= 3.0.0
+    config.audit_with :paper_trail, 'User', 'PaperTrail::Version' # PaperTrail >= 3.0.0
 
    ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
 
@@ -74,6 +74,16 @@ RailsAdmin.config do |config|
   # don't exclude empty fields in show...
   config.compact_show_view = false
 
+  
+  
+  
+  
+  
+  
+  
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  
   config.model 'DcDiscipline' do
     edit do
       #include_all_fields # all other default fields will be added after, conveniently

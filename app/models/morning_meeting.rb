@@ -4,6 +4,7 @@ class MorningMeeting < ApplicationRecord
 
   #validates_presence_of :is_closed
   validates_presence_of :machine_id, :running, :name
+  validates_presence_of  :name
 
   # https://www.justinweiss.com/articles/search-and-filter-rails-models-without-bloating-your-controller/
   #   http://pmdsdata:3001/morning_meetings?closeditems=false

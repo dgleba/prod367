@@ -17,7 +17,8 @@ class Ability
 
       # if this not  here, then cannot autocomplete machine
       can :manage, :all
-      cannot [ :create, :update, :destroy, :read ],  :all
+      can :manage,  [ MorningMeeting,   ]
+      cannot [ :create, :update, :destroy,  ],  :all
 
       # can :read, :all 
       can :read,  [ MorningMeeting, VwEamAsset,   PapertrailTable, User, Role  ]

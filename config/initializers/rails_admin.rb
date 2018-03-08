@@ -75,6 +75,14 @@ RailsAdmin.config do |config|
   config.compact_show_view = false
 
   
+  config.model 'MorningMeeting' do
+    list do 
+       exclude_fields :name_off
+      # field :id do
+        # sort_reverse false  # this seemed to prevent any from showing in the list view.
+      # end
+    end  
+  end  
   
   
   

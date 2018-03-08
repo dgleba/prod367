@@ -82,118 +82,26 @@ RailsAdmin.config do |config|
         # sort_reverse false  # this seemed to prevent any from showing in the list view.
       # end
     end  
-  end  
-  
-  
-  
-  
-  
-  
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  
-  config.model 'DcDiscipline' do
     edit do
       #include_all_fields # all other default fields will be added after, conveniently
-      exclude_fields :output, :sigpad_supervisor, :versions # but you still can remove fields
-      exclude_fields :active_status, :sort_order, :title # but you still can remove fields
+      exclude_fields :name_off
       #
       fields do
         help false
       end
-      
-      field :hr_manager_approval do
-        help 'By typing in their own name, the HR Manager approves this discipline. The person should type their own name in this box for themself only.'
-      end
-      field :production_manager_approval do
-        help 'By typing in their own name, the Production Manager approves this discipline.  The person should type their own name in this box for themself only.'
-      end
-      field :documents_on_file do
-        help "Additional documents are on file in the employee's electronic personnel file folder."
-      end
-      
-      #https://github.com/sferik/rails_admin/issues/1395  - rails admin associated_collection_scope
-      field :employee do
-        associated_collection_cache_all false
-        associated_collection_scope do
-          Proc.new { |scope|
-            scope = scope.where(active: 1) # if location.present?
-            }
-        end
-      end  
+    end
 
-      field :dc_level do
-        associated_collection_cache_all false
-        associated_collection_scope do
-          Proc.new { |scope|
-            scope = scope.where(active_status: 1) # if location.present?
-            }
-        end
-      end      
-    end
-    #
-    list do
-      include_all_fields # all other default fields will be added after, conveniently
-      exclude_fields :active_status # but you still can remove fields
-      exclude_fields :sort_order
-      # https://stackoverflow.com/questions/13529634/rails-admin-searchable-association
-      field :employee do
-        queryable true
-        searchable [ :name, :clock ]
-      end      
-    end
-    # 
-    object_label_method {  :to_s }
-  end
-
-  config.model 'PpParkingpass' do
-    edit do
-      exclude_fields :dept, :company, :grouping, :en_status, :supervisor, :en_name, :en_clock, :clock1, :title
-      # field :employee
-      # field :parking_pass
-      #
-      fields do
-        help false
-      end
-      #https://github.com/sferik/rails_admin/issues/1395  - rails admin associated_collection_scope
-      field :employee do
-        #searchable [ :name, :clock ]
-        associated_collection_cache_all false
-        associated_collection_scope do
-          Proc.new { |scope|
-            scope = scope.where(active: 1) # if location.present?
-           }
-        end
-      end     
-    end
-    #
-    list do
-      exclude_fields :dept, :company, :grouping, :en_status, :supervisor, :en_name, :en_clock, :clock1, :title
-      # https://stackoverflow.com/questions/13529634/rails-admin-searchable-association
-      # this solves .. rails_admin filter association returns all rows
-      field :employee do
-        queryable true
-        searchable [ :name, :clock ]
-      end
-    end
+    # object_label_method do
+      # :mm_nameref
+    # end
+    
   end
   
-  config.model 'DcLevel' do
-    list do 
-       sort_by :sort_order 
-      # field :id do
-        # sort_reverse false  # this seemed to prevent any from showing in the list view.
-      # end
-    end  
-  end
   
-  config.model 'Employee' do
-    object_label_method {  :ra_empl_active }
-    list do 
-      sort_by :name
-    end  
-  end  
- 
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   
   #  http://stackoverflow.com/questions/11658281/rails-admin-display-name-instead-of-id

@@ -2,9 +2,26 @@ class MorningMeeting < ApplicationRecord
 
   has_paper_trail  class_name: 'PapertrailTable'
 
+  # https://stackoverflow.com/questions/13261762/populating-rails-fields-based-on-calculation
+  # to the top of your model and then define
+  before_save :calc_name
+  # def calc_name_eg
+      # unless self.exit_price.blank? || self.entry_price.blank?
+          # self.percent_result = ((self.exit_price - self.entry_price)/self.entry_price) * 100
+          # self.dollar_result = self.exit_price - self.entry_price 
+      # end
+  # end
+    def calc_name
+        unless self.machine_id.blank? 
+            self.name_off = self.machine_id[0...11]
+        end
+    end
+
+
+  
   #validates_presence_of :is_closed
-  validates_presence_of :machine_id, :running, :name
-  validates_presence_of  :name
+  validates_presence_of :machine_id, :running
+  #validates_presence_of  :name
 
   # https://www.justinweiss.com/articles/search-and-filter-rails-models-without-bloating-your-controller/
   #   http://pmdsdata:3001/morning_meetings?closeditems=false

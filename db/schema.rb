@@ -12,6 +12,21 @@
 
 ActiveRecord::Schema.define(version: 50161230223319) do
 
+  create_table "copy_morning_meetings_2018-03-08", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "priority"
+    t.string   "machine_id"
+    t.text     "problem_description",    limit: 65535
+    t.string   "running"
+    t.string   "responsibility"
+    t.text     "timing_plan_for_repair", limit: 65535
+    t.text     "followup_comments",      limit: 65535
+    t.string   "is_closed",                            default: "no"
+    t.string   "name_off"
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
+    t.integer  "reviewed_mark"
+  end
+
   create_table "dataface__failed_logins", primary_key: "attempt_id", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string  "ip_address",      limit: 32, null: false
     t.string  "username",        limit: 32, null: false
@@ -47,7 +62,6 @@ ActiveRecord::Schema.define(version: 50161230223319) do
   end
 
   create_table "morning_meetings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
     t.string   "priority"
     t.string   "machine_id"
     t.text     "problem_description",    limit: 65535
@@ -56,6 +70,7 @@ ActiveRecord::Schema.define(version: 50161230223319) do
     t.text     "timing_plan_for_repair", limit: 65535
     t.text     "followup_comments",      limit: 65535
     t.string   "is_closed",                            default: "no"
+    t.string   "name_off",               limit: 99
     t.datetime "created_at",                                          null: false
     t.datetime "updated_at",                                          null: false
     t.integer  "reviewed_mark"
@@ -159,5 +174,4 @@ ActiveRecord::Schema.define(version: 50161230223319) do
     t.index ["transaction_id"], name: "index_versions_on_transaction_id", using: :btree
   end
 
-  add_foreign_key "users", "roles"
 end

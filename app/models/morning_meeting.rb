@@ -2,6 +2,7 @@ class MorningMeeting < ApplicationRecord
 
   has_paper_trail  class_name: 'PapertrailTable'
 
+  # this is an example of a calculated field stored to the db
   # https://stackoverflow.com/questions/13261762/populating-rails-fields-based-on-calculation
   # to the top of your model and then define
   before_save :calc_name
@@ -16,6 +17,7 @@ class MorningMeeting < ApplicationRecord
             self.name_off = self.machine_id[0...11]
         end
     end
+  # end this is an example of a calculated field stored to the db
 
 
   
@@ -54,6 +56,9 @@ class MorningMeeting < ApplicationRecord
     SQLQ
   end   
    
-   
+  def mm_nameref   
+    "id##{id}; mc:#{machine_id[0...19]}"
+  end
   
+
 end

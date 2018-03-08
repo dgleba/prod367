@@ -92,9 +92,10 @@ RailsAdmin.config do |config|
       end
     end
 
-    # object_label_method do
-      # :mm_nameref
-    # end
+    # not finished..
+    object_label_method do
+      :mm_nameref
+    end
     
   end
   

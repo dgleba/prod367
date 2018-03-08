@@ -14,34 +14,50 @@ class Ability
     #
 
     elsif user.lr_supervisor?
-      can :access, :rails_admin      
-      can :dashboard                  # allow access to dashboard
-      can :show_in_app, :all
+
+      # if this not  here, then cannot autocomplete machine
+      can :manage, :all
+      cannot [ :create, :update, :destroy, :read ],  :all
+
       # can :read, :all 
-      can :read,  [ DcDiscipline, DcLevel, DcStream, Employee, PpParkingpass, PapertrailTable, User, Role, EmpHomephone ]
-      can [ :create, :update, ], [ DcDiscipline, PpParkingpass ]
+      can :read,  [ MorningMeeting, VwEamAsset,   PapertrailTable, User, Role  ]
+      can [ :create, :update, ], [ MorningMeeting,  ]
       # can [ :create, :update, ], [ Product , Pfeature, ProductFeature, CountryOfOrigin  ]
       # can [ :destroy, ], [ PpParkingpass  ]
       can :export,  :all 
       can :history,  :all
-
-    elsif user.lr_regular?
-      can :access, :rails_admin       
-      # can :dashboard                  # allow access to dashboard
+      
+      can :access, :rails_admin      
+      can :manage, :dashboard                  # allow access to dashboard
+      can :dashboard                  # allow access to dashboard
+      can :access, :dashboard                  # allow access to dashboard
       can :show_in_app, :all
-      can :read,  [ DcDiscipline, DcLevel, DcStream, Employee, PpParkingpass, Role ]
-      can [ :update, ], [ DcDiscipline, ]
+
+      
+    elsif user.lr_regular?
+
+      # if this not  here, then cannot autocomplete machine
+      can :manage, :all
+      cannot [ :create, :update, :destroy, :read ],  :all
+    
+
+      can :access, :rails_admin       
+      can :dashboard                  # allow access to dashboard
+      can :show_in_app, :all
+      can :read,  [ MorningMeeting, VwEamAsset,  Role ]
+      #can [ :update, ], [ DcDiscipline, ]
       # can :read, [  Role, User, ]
       # can :read, [  Answer, PartNumber, ProcessStep,  Question, Survey, QuestionList ]
       # can [ :create, :update, ], [  Answer ]
       cannot :export,  :all 
+      can :history,  :index
 
     elsif user.lr_future4?
       # can :read, [ Product, Role, User]
       # can [ :create, :update, :destroy, ], [ Product, ]
       
     elsif user.lr_readonly?
-      can :read, Role
+      can :read, [ MorningMeeting, VwEamAsset, Role ]
 
     elsif user.lr_minimal?
       can :read, Role

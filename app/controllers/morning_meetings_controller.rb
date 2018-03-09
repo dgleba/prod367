@@ -29,7 +29,7 @@ before_filter :authenticate_user!
     
     # https://github.com/activerecord-hackery/ransack/wiki/Sorting-in-the-Controller
     # no... @q.sorts = 'updated_at desc' if @q.present? 
-    @q.sorts = 'updated_at desc' if (params[:q]).present? 
+    @q.sorts = [ 'updated_at desc' , 'id desc' ] if (params[:q]).present? 
 
     @morning_meetings = @q.result.page(params[:page])
     

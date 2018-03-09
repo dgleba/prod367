@@ -49,10 +49,11 @@
   <thead>
     <tr>
       <th colspan="1"></th>
-            <th>id</th>
+            
+      <th> <%= sort_link(@q, :id, 'id', default_order: :asc) %> </th>
             
       <th>Priority</th>
-      <th>Machine</th>
+      <th> <%= sort_link(@q, :machine_id, 'Machine') %>  </th>
       <th>Problem description</th>
       <th>Running</th>
       <th>Responsibility</th>
@@ -60,7 +61,8 @@
       <th>Followup comments</th>
       <th>Is closed</th>
       <th>created</th>
-      <th>updated</th>
+      
+      <th> <%= sort_link(@q, :updated_at, 'Updatedat', default_order: :desc) %> </th>
     </tr>
   </thead>
 

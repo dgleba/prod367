@@ -26,6 +26,10 @@ before_filter :authenticate_user!
   # GET /morning_meetings
   def index
     @q = @morning_meetings.search params[:q]
+    
+    # https://github.com/activerecord-hackery/ransack/wiki/Sorting-in-the-Controller
+    #@q.sorts = 'updated_at desc' if @q.present? 
+
     @morning_meetings = @q.result.page(params[:page])
     
     # scope for is_closed - see model.

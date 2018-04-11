@@ -48,13 +48,17 @@ class MorningMeeting < ApplicationRecord
   # works scope :closeditems, -> (param1) { where("is_closed like ?", "#{param1}%")}
   # works, but always id sorted...    scope :closeditemsnot, -> (param1) { where.not("is_closed like ?", "#{param1}").order(id: :asc) } 
   # with sort.. scope :closeditemsnot, -> (param1) { where.not("is_closed like ?", "#{param1}").order(dept: :asc, id: :asc ) } 
-  scope :closeditemsnot, -> (param1) { where.not("is_closed like ?", "#{param1}").order( created_at: :asc , id: :asc ) } 
+
+  scope :priorityorder, -> (param1) { where.not("is_closed like ?", "#{param1}").order( priority: :asc, running: :asc, created_at: :desc , id: :desc ) } 
+
+  scope :closeditemsnot, -> (param1) { where.not("is_closed like ?", "#{param1}").order( dept: :asc, created_at: :asc, id: :asc ) } 
+
  
   
   # works scope to show open items not yet reviewed.
   # https://stackoverflow.com/questions/11317662/rails-using-greater-than-less-than-with-a-where-statement
   #   http://pmdsdata:3001/morning_meetings?notreviewed=true
-  scope :notreviewed, -> (param1) { where.not("is_closed like ?", "#{param1}").where("reviewed_mark = ?", 0 ).order(dept: :asc, id: :asc )}
+  scope :notreviewed, -> (param1) { where.not("is_closed like ?", "#{param1}").where("reviewed_mark = ?", 0 ).order(dept: :asc, created_at: :asc, id: :asc )}
   
   # not used..
   # idea for date updated before today. rails scope updated_at before today

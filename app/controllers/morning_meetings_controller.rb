@@ -36,6 +36,8 @@ before_filter :authenticate_user!
     # scope for is_closed - see model.
     @morning_meetings = @morning_meetings.closeditemsnot(params[:closeditemsnot]) if params[:closeditemsnot].present?
 
+    @morning_meetings = @morning_meetings.priorityorder(params[:priorityorder]) if params[:priorityorder].present?
+
     # scope for isclosed and reviewed_mark - see model.
     @morning_meetings = @morning_meetings.notreviewed(params[:notreviewed]) if params[:notreviewed].present?
 

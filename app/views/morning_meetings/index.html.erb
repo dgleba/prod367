@@ -50,17 +50,17 @@
     <tr>
       <th colspan="1"></th>
             
-      <th> <%= sort_link(@q, :id, 'id', default_order: :asc) %> </th>
+      <th> <%= sort_link(@q, :id, 'id', default_order: :desc) %> </th>
             
       <th> <%= sort_link(@q, :priority, 'Priority') %>  </th>
       <th> <%= sort_link(@q, :machine_id, 'Machine') %>  </th>
       <th>Problem description</th>
-      <th>Running</th>
+      <th> <%= sort_link(@q, :running, 'Running', default_order: :asc) %>  </th>
       <th>Responsibility</th>
       <th>Timing plan for repair</th>
       <th>Followup comments</th>
       <th>Is closed</th>
-      <th> <%= sort_link(@q, :created_at, 'created') %> </th>
+      <th> <%= sort_link(@q, :created_at, 'created', default_order: :desc) %> </th>
       
       <th> <%= sort_link(@q, :updated_at, 'Updatedat', default_order: :desc) %> </th>
     </tr>
@@ -84,7 +84,7 @@
         <td><%= morning_meeting.running %></td>
         <td><%= morning_meeting.responsibility %></td>
         <td><%= morning_meeting.timing_plan_for_repair %></td>
-        <td><%= morning_meeting.followup_comments %></td>
+        <td> <%=  morning_meeting.followup_comments.truncate(155, :omission => " .~.~.") if morning_meeting.followup_comments %>  
         <td><%= morning_meeting.is_closed %></td>
         <td><%= morning_meeting.created_at.strftime("%m-%d") if morning_meeting.created_at.present? %></td>
         <td><%= morning_meeting.updated_at.strftime("%m-%d") if morning_meeting.updated_at.present? %></td>

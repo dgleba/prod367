@@ -34,9 +34,10 @@
 <p>
   <strong>Followup comments:</strong>
    
-  <%# Using a double equals means the result is not escaped... simple_format will keep linebreaks simple_format @morning_meeting.followup_comments %>
+  <%# Using a double equals means the result is not escaped, raw is the same thing. simple_format will keep linebreaks simple_format @morning_meeting.followup_comments %>
+
   <div style="padding-left: 3em;">
-  <%=raw @morning_meeting.followup_comments.gsub(/\n/, '<br />') %>
+    <%=raw @morning_meeting.followup_comments.gsub(/\n/, '<br />') %>
   </div>
 </p>
 

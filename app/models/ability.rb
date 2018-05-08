@@ -17,8 +17,14 @@ class Ability
 
       # if this not  here, then cannot autocomplete machine
       can :manage, :all
-      can :manage,  [ MorningMeeting,   ]
+      # can :manage,  [ MorningMeeting,   ]
       cannot [ :create, :update, :destroy,  ],  :all
+
+      can :access, :rails_admin      
+      can :manage, :dashboard                  # allow access to dashboard
+      can :dashboard                  # allow access to dashboard
+      can :access, :dashboard                  # allow access to dashboard
+      can :show_in_app, :all
 
       # can :read, :all 
       can :read,  [ MorningMeeting, VwEamAsset,   PapertrailTable, User, Role  ]
@@ -28,38 +34,50 @@ class Ability
       can :export,  :all 
       can :history,  :all
       
-      can :access, :rails_admin      
-      can :manage, :dashboard                  # allow access to dashboard
-      can :dashboard                  # allow access to dashboard
-      can :access, :dashboard                  # allow access to dashboard
-      can :show_in_app, :all
-
       
     elsif user.lr_regular?
 
       # if this not  here, then cannot autocomplete machine
       can :manage, :all
       cannot [ :create, :update, :destroy, :read ],  :all
-    
 
       can :access, :rails_admin       
+      can :manage, :dashboard                  # allow access to dashboard
       can :dashboard                  # allow access to dashboard
-      can :show_in_app, :all
-      can :read,  [ MorningMeeting, VwEamAsset,  Role ]
+      can :access, :dashboard                  # allow access to dashboard
+
+      can :read,  [ MorningMeeting, VwEamAsset,   PapertrailTable, User, Role  ]
+      can [ :create, :update, ], [ MorningMeeting,  ]
+      
       #can [ :update, ], [ DcDiscipline, ]
       # can :read, [  Role, User, ]
       # can :read, [  Answer, PartNumber, ProcessStep,  Question, Survey, QuestionList ]
       # can [ :create, :update, ], [  Answer ]
+      # can :history,  :index
+
       cannot :export,  :all 
-      can :history,  :index
+      can :show_in_app, :all
+
 
     elsif user.lr_future4?
       # can :read, [ Product, Role, User]
       # can [ :create, :update, :destroy, ], [ Product, ]
+
       
     elsif user.lr_readonly?
+      can :manage, :all
+      cannot [ :create, :update, :destroy, :read ],  :all
+
+      can :manage, :dashboard                  # allow access to dashboard
+      can :dashboard                  # allow access to dashboard
+      can :access, :rails_admin       
+      can :access, :dashboard                  # allow access to dashboard
+
       can :read, [ MorningMeeting, VwEamAsset, Role ]
 
+      cannot :export,  :all 
+      can :show_in_app, :all
+      
     elsif user.lr_minimal?
       can :read, Role
 

@@ -77,7 +77,7 @@ RailsAdmin.config do |config|
   
   config.model 'MorningMeeting' do
     list do 
-       exclude_fields :name_off
+       exclude_fields :name_off, :versions
       # field :id do
         # sort_reverse false  # this seemed to prevent any from showing in the list view.
       # end
@@ -85,12 +85,17 @@ RailsAdmin.config do |config|
 
     edit do
       #include_all_fields # all other default fields will be added after, conveniently
-      exclude_fields :name_off
+      exclude_fields :name_off, :versions
       #
       fields do
         help false
       end
+      
+      field :excel_isclosed do
+        help "Fields named excel_..xxx.. are from the old Excel file. They are here for reference if you are looking back at historical data."
+      end
     end
+
 
     # not finished..
     object_label_method do

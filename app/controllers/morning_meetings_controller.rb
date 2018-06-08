@@ -40,6 +40,9 @@ before_filter :authenticate_user!
 
     # scope for isclosed and reviewed_mark - see model.
     @morning_meetings = @morning_meetings.notreviewed(params[:notreviewed]) if params[:notreviewed].present?
+    
+    
+    @morning_meetings = @morning_meetings.notreviewedpriority(params[:notreviewedpriority]) if params[:notreviewedpriority].present?
 
     
   end

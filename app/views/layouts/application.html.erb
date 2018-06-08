@@ -34,12 +34,25 @@
               <%#= link_to 'MorningMeetingIssues', morning_meetings_path, :closeditems => "false" %> 
               <%=  link_to 'MorningMeetingIssues--Open', morning_meetings_path( closeditemsnot: "true" )%>
             </li>
+            
             <li>
-              <%=  link_to 'MorningMeetingIssues--ToReview', morning_meetings_path( notreviewed: "true" )%>
+              <%=  link_to 'Issues-Review-A-priority', morning_meetings_path( notreviewedpriority: "A" )%>
+            </li>            
+            <li>
+              <%=  link_to "Review-B's", morning_meetings_path( notreviewedpriority: "B" )%>
             </li>
             <li>
-              <%=  link_to 'MorningMeetingIssues--PRIORITY', morning_meetings_path( priorityorder: "true" )%>
+              <%=  link_to "Review-C's", morning_meetings_path( notreviewedpriority: "C" )%>
             </li>
+            
+            <li>
+              <%=  link_to 'Issues--AllReview', morning_meetings_path( notreviewed: "true" )%>
+            </li>
+            
+            <li>
+              <%=  link_to 'Issues--PRIORITYsort', morning_meetings_path( priorityorder: "true" )%>
+            </li>
+            
           </ul>
 
           <ul class="nav navbar-nav navbar-right">

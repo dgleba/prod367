@@ -80,7 +80,7 @@
         <td><%= morning_meeting.id %></td>
         <td><%= morning_meeting.priority %></td>
         <td><%= morning_meeting.machine_id %></td>
-        <td><%= morning_meeting.problem_description %></td>
+        <td><%= morning_meeting.problem_description.truncate(155, :omission => " .~.~.") if morning_meeting.problem_description %></td>
         <td><%= morning_meeting.running %></td>
         <td><%= morning_meeting.responsibility %></td>
         <td><%= morning_meeting.timing_plan_for_repair %></td>

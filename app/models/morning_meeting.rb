@@ -59,6 +59,13 @@ class MorningMeeting < ApplicationRecord
   # https://stackoverflow.com/questions/11317662/rails-using-greater-than-less-than-with-a-where-statement
   #   http://pmdsdata:3001/morning_meetings?notreviewed=true
   scope :notreviewed, -> (param1) { where.not("is_closed like ?", "#{param1}").where("reviewed_mark = ?", 0 ).order(dept: :asc, created_at: :asc, id: :asc )}
+
+  
+  # Scope showing unreviewed items and priority = param1 on url.
+  
+  scope :notreviewedpriority, -> (param1) { where.not("is_closed like ?", "true").where("reviewed_mark = ?", 0 ).where("priority = ?", "#{param1}").order(dept: :asc, created_at: :asc, id: :asc )}
+
+  
   
   # not used..
   # idea for date updated before today. rails scope updated_at before today

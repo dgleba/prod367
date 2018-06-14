@@ -50,7 +50,6 @@
             <li data-toggle="tooltip" title="Show all open issues sorted by Priority-Sort">
               <%=  link_to 'Issues-Priorty', morning_meetings_path( priorityorder: "true" )%>
             </li>
- 
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
@@ -59,8 +58,8 @@
                 <li>
                   <%#= link_to "Parkingpass", pp_parkingpasses_path, :class => "btn btn-secondary " %>
                 </li>				
-               <li>
-                  <%= link_to "Administer", rails_admin.dashboard_path, :class => "btn btn-secondary " %>
+               <li data-toggle="tooltip" title="Administration screens">
+                  <%= link_to "Admin", rails_admin.dashboard_path, :class => "btn btn-secondary " %>
                </li>
                <li>
                   <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>

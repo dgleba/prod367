@@ -11,10 +11,16 @@
       </ul>
     </div>
   <% end %>
-  
+
   <div class="form-group">
-            <%= f.label :priority, class: "col-sm-2 control-label" %>
-        <div class="col-sm-10">
+    <div class="col-sm-offset-1 col-sm-3">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+  </div>
+
+<div class="row">  
+        <%= f.label :priority, class: "col-sm-1 control-label" %>
+        <div class="col-sm-2">
         <%#= f.text_field :priority, class: "form-control" %>
 
         <%= f.label :priority, "A", :value => "rpriority"  %>
@@ -23,54 +29,17 @@
         <%= f.radio_button :priority, 'B' , class: "radio-inline" %>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <%= f.label :priority, "C", :value => "rpriority" %>
         <%= f.radio_button :priority, 'C' , class: "radio-inline" %>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-         
-      </div>
-        </div>
-        
-  <div class="form-group">
-            <%= f.label :machine_id, class: "col-sm-2 control-label" %>
-        <div class="col-sm-10">
-        <%#= f.text_field :machine_id, class: "form-control" %>
-        <%= f.autocomplete_field :machine_id, autocomplete_vw_eam_asset_asset_title_morning_meetings_path , 'min-length' => 1 , 'data-auto-focus' => true, :size => 75 %>
 
-      </div>
         </div>
-        
-  <div class="form-group">
-            <%= f.label :problem_description, class: "col-sm-2 control-label" %>
-        <div class="col-sm-10">
-        <%= f.text_area :problem_description, class: "form-control" %>
-      </div>
-        </div>
-  <div class="form-group">
-            <%= f.label :running, class: "col-sm-2 control-label" %>
-        <div class="col-sm-10">
+
+         <%= f.label :running, class: "col-sm-1 control-label" %>
+        <div class="col-sm-1">
         <%#= f.text_field :running, class: "form-control" %>
-        <%= f.check_box  :running,  { class: "checkbox", value: ""} %> 
-      </div>
+        <%= f.check_box  :running,  { class: "checkbox", value: ""} %>
         </div>
-  <div class="form-group">
-            <%= f.label :responsibility, class: "col-sm-2 control-label" %>
-        <div class="col-sm-10">
-        <%= f.text_field :responsibility, class: "form-control" %>
-      </div>
-        </div>
-  <div class="form-group">
-            <%= f.label :timing_plan_for_repair, class: "col-sm-2 control-label" %>
-        <div class="col-sm-10">
-        <%= f.text_area :timing_plan_for_repair, class: "form-control" %>
-      </div>
-        </div>
-  <div class="form-group">
-            <%= f.label :followup_comments, class: "col-sm-2 control-label" %>
-        <div class="col-sm-10">
-        <%= f.text_area :followup_comments, class: "form-control" %>
-      </div>
-        </div>
-        
-  <div class="form-group">
-            <%= f.label :is_closed, class: "col-sm-2 control-label" %>
-        <div class="col-sm-10">
+
+        <%= f.label :is_closed, class: "col-sm-1 control-label" %>
+        <div class="col-sm-2">
         <%#= f.text_field :is_closed, class: "form-control" %>
          
         <%= f.label :is_closed, "Yes", :value => "Yes"  %>
@@ -78,20 +47,57 @@
         <%= f.label :is_closed, "No", :value => "No " %>
         <%= f.radio_button :is_closed, false , class: "radio-inline" %>
        </div>
-        </div>
+	   
 
+		
+</div>
+        
   <div class="form-group">
-            <%= f.label :reviewed_mark, class: "col-sm-2 control-label" %>
+            <%= f.label :machine_id, class: "col-sm-1 control-label" %>
         <div class="col-sm-10">
-        <%#= f.text_field :reviewed_mark, class: "form-control" %>      
-        <%#= f.label :reviewed_mark  %>
-        <%= f.check_box  :reviewed_mark,  {:checked=>true} %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <%#= f.text_field :machine_id, class: "form-control" %>
+        <%= f.autocomplete_field :machine_id, autocomplete_vw_eam_asset_asset_title_morning_meetings_path , 'min-length' => 1 , 'data-auto-focus' => true, :size => 75 %>
       </div>
         </div>
         
   <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <%= f.submit class: "btn btn-primary" %>
-    </div>
+            <%= f.label :problem_description, class: "col-sm-1 control-label" %>
+        <div class="col-sm-10">
+        <%= f.text_area :problem_description, class: "form-control" %>
+      </div>
+        </div>
+
+  <div class="row">
+      <%= f.label :responsibility, class: "col-sm-1 control-label" %>
+        <div class="col-sm-2">
+        <%= f.text_field :responsibility, class: "form-control" %>
+      </div>
+
+      <%= f.label :timing_plan_for_repair, class: "col-sm-1 control-label" %>
+        <div class="col-sm-6">
+        <%= f.text_area :timing_plan_for_repair, class: "form-control" %>
+      </div>	  
   </div>
+
+  <div class="form-group">
+        </div>
+		
+  <div class="form-group">
+            <%= f.label :followup_comments, class: "col-sm-1 control-label" %>
+        <div class="col-sm-10">
+        <%= f.text_area :followup_comments, class: "form-control" %>
+      </div>
+        </div>
+        
+
+  <div class="form-group">
+	  <%= f.label :reviewed_mark, class: "col-sm-1 control-label" %>
+        <div class="col-sm-1">
+        <%#= f.text_field :reviewed_mark, class: "form-control" %>      
+        <%#= f.label :reviewed_mark  %>
+        <%= f.check_box  :reviewed_mark,  {:checked=>true} %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </div>
+  </div>
+
+
 <% end %>

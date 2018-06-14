@@ -12,18 +12,18 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap
 //= require bootstrap-sprockets
 //= require signature-pad
 //= require select2
 //= require cocoon
 //= require tether
-//= require bootstrap
- //= require jquery-ui/autocomplete 
- //= require autocomplete-rails
-//= require_tree .
+//= require jquery-ui/autocomplete 
+//= require autocomplete-rails
 //= areyousure/jquery.are-you-sure
 //= maximize-select2-height_dg/maximizeSelect2Height
 //= areyousure/ays-beforeunload-shim
 //= require autosize
+//= require_tree .
 
 

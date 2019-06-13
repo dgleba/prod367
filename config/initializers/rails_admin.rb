@@ -104,7 +104,11 @@ RailsAdmin.config do |config|
     
   end
   
-  
+
+  config.model 'User' do
+    exclude_fields :versions
+  end  
+
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

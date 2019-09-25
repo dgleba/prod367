@@ -6,7 +6,7 @@
   </div>
 
   <div class="col-sm-1 ">
-    <h5>Listing Morning Meetings</h5>
+    <h5>Morning Meetings</h5>
   </div>
 
   <div class="col-sm-3">
@@ -56,8 +56,8 @@
       <th> <%= sort_link(@q, :machine_id, 'Machine') %>  </th>
       <th>Problem description</th>
       <th> <%= sort_link(@q, :running, 'Running', default_order: :asc) %>  </th>
-      <th>Responsibility</th>
-      <th>Timing plan for repair</th>
+      <th>Resp</th>
+      <th>Plan</th>
       <th>Followup comments</th>
       <th>Is closed</th>
       <th> <%= sort_link(@q, :created_at, 'created', default_order: :desc) %> </th>
@@ -71,7 +71,7 @@
       <tr>
         <td>
           <div class="btn-group">
-          <%= link_to 'Show', morning_meeting, class: "btn btn-info", :style=>'color:#FFFFFF;' %>
+          <%# = link_to 'Show', morning_meeting, class: "btn btn-info", :style=>'color:#FFFFFF;' %>
           <%= link_to 'Edit', edit_morning_meeting_path(morning_meeting), class: "btn btn-primary", :style=>'color:#FFFFFF;' %>
           <%#= link_to 'Destroy', morning_meeting, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning", :style=>'color:#FFFFFF;' %>
           </div>

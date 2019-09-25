@@ -13,18 +13,12 @@
   <% end %>
 
   <div class="form-group">
-    <div class="col-sm-offset-1 col-sm-9">
-      <%= f.submit "Update & review A s", name: "update_then_a", class: "btn btn-primary", style:"background-color: #148F77; color: white;"    %>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <%= f.submit "Update & review B s", name: "update_then_b", class: "btn btn-primary", style:"background-color: #85929E; color: white;"  %>
-      &nbsp;&nbsp;&nbsp;
-      <%= f.submit "Update & review C s", name: "update_then_c", class: "btn btn-primary", style:"background-color: #D7CCC8; color: white;"  %>
+    <div class="col-sm-offset-1 col-sm-3">
+      <%= f.submit class: "btn btn-primary" %>
     </div>
   </div>
 
 <div class="row">  
-
-
         <%= f.label :priority, class: "col-sm-1 control-label" %>
         <div class="col-sm-2">
         <%#= f.text_field :priority, class: "form-control" %>
@@ -44,28 +38,20 @@
         <%= f.check_box  :running,  { class: "checkbox", value: ""} %>
         </div>
 
+        <%= f.label :is_closed, class: "col-sm-1 control-label" %>
+        <div class="col-sm-1">
+        <%#= f.text_field :is_closed, class: "form-control" %>
+         
+        <%= f.label :is_closed, "Yes", :value => "Yes"  %>
+        <%= f.radio_button :is_closed, true , class:"radio-inline" %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <%= f.label :is_closed, "No", :value => "No " %>
+        <%= f.radio_button :is_closed, false , class: "radio-inline" %>
+       </div>
+	   
 
-        <%= f.label :is_closed, class: "col-sm-1 control-label ", style:"vertical-align: middle;" %>
-        <div class="col-sm-2">
-          <%#= f.text_field :is_closed, class: "form-control" %>
-
-          <div class="row">
-            <div>
-              <%= f.label :is_closed, "Yes", :value => "Yes" %> 
-              <%= f.radio_button :is_closed, true , class:"radio-inline" %>     &nbsp;
-
-              <%= f.label :is_closed, "No", :value => "No " %> 
-              <%= f.radio_button            :is_closed, false , class: "radio-inline" %>
-            </div>
-          </div>
-        </div>
-
+		
 </div>
-
-<div>
-  &nbsp;&nbsp;&nbsp;
-</div>
-
+        
   <div class="form-group">
         <%= f.label :machine_id, class: "col-sm-1 control-label" %>
         <div class="col-sm-10">
@@ -76,7 +62,7 @@
         
   <div class="form-group">
             <%= f.label :problem_description, class: "col-sm-1 control-label" %>
-        <div class="col-sm-11">
+        <div class="col-sm-10">
         <%= f.text_area :problem_description, class: "form-control" %>
       </div>
         </div>
@@ -100,11 +86,11 @@
 
    <div class="form-horizontal">
       <div class="col-sm-1">  
-          <span class = "pull-right text-right" style="vertical-align: middle;">Followup Comments  </span>
-          <div> <button id="AddNewFollowup" type = "button" class = "pull-right btn" style="background-color: #ff9933; color: white; vertical-align: middle;">Add line</button> </div>
+          <span class = "pull-right text-right">Followup Comments  </span>
+          <div> <button id="AddNewFollowup" type = "button" class = "pull-right btn" style="background-color: #ff9933; color: white;">Add line</button> </div>
       </div>
       
-      <div class="col-sm-11">
+      <div class="col-sm-9">
         <%= f.text_area :followup_comments, class: "form-control", id: "FollowupTextarea" %>
       </div>
       
@@ -134,13 +120,9 @@
         <div class="col-sm-1">
         <%#= f.text_field :reviewed_mark, class: "form-control" %>      
         <%#= f.label :reviewed_mark  %>
-        <%= f.check_box  :reviewed_mark,  {:checked=>true} %> &nbsp;&nbsp;&nbsp;&nbsp;
-        </div>
+        <%= f.check_box  :reviewed_mark,  {:checked=>true} %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </div>
+  </div>
 
-      <span> Created: <%= @morning_meeting.created_at.strftime("%Y-%m-%d %H:%M")  if @morning_meeting.created_at.present? %></span>
-      &nbsp;&nbsp;&nbsp;
-      <span> Updated: <%= @morning_meeting.updated_at.strftime("%Y-%m-%d %H:%M") if @morning_meeting.updated_at.present? %></span>
-      &nbsp;&nbsp;&nbsp;
-      <span> ID: <%= @morning_meeting.id if @morning_meeting.id.present? %></span>  </div>
 
 <% end %>

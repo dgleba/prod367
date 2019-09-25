@@ -76,17 +76,8 @@ before_filter :authenticate_user!
   def update
     respond_to do |format|
       if @morning_meeting.update(morning_meeting_params)
-        # format.html { redirect_to @morning_meeting, notice: t('success_update') }
-        #  With only one button, This can't work as I don't know what review type is needed next...  format.html { redirect_to morning_meetings_url(param1 => 'blah blah'), notice: t('success_update') }
-        #
-        # https://stackoverflow.com/questions/3332449/rails-multi-submit-buttons-in-one-form
-        if params[:update_then_a]
-            format.html { redirect_to morning_meetings_path( notreviewedpriority: "A" ), notice: t('success_update') }
-        elsif params[:update_then_b]
-            format.html { redirect_to morning_meetings_path( notreviewedpriority: "B" ), notice: t('success_update') }
-        elsif params[:update_then_c]
-            format.html { redirect_to morning_meetings_path( notreviewedpriority: "C" ), notice: t('success_update') }
-        end        
+        format.html { redirect_to @morning_meeting, notice: t('success_update') }
+        #  This can't work as I don't know what review type is needed next...  format.html { redirect_to morning_meetings_url(param1 => 'blah blah'), notice: t('success_update') }
         format.json { render :show, status: :ok, location: @morning_meeting }
       else
         format.html { render :edit }
@@ -111,4 +102,3 @@ before_filter :authenticate_user!
     params.require(:morning_meeting).permit(:name, :priority, :machine_id, :problem_description, :running, :responsibility, :timing_plan_for_repair, :followup_comments, :is_closed, :reviewed_mark)
   end
 end
-

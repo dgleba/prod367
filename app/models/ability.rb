@@ -63,6 +63,22 @@ class Ability
       # can :read, [ Product, Role, User]
       # can [ :create, :update, :destroy, ], [ Product, ]
 
+    elsif user.lr_create?
+      can :manage, :all
+      cannot [ :create, :update, :destroy, :read ],  :all
+
+      can :manage, :dashboard                  # allow access to dashboard
+      can :dashboard                  # allow access to dashboard
+      can :access, :rails_admin       
+      can :access, :dashboard                  # allow access to dashboard
+
+      can :read, [ MorningMeeting, VwEamAsset, Role ]
+      can [ :create, ], [ MorningMeeting,  ]
+      
+      cannot :export,  :all 
+      can :show_in_app, :all
+      
+
       
     elsif user.lr_readonly?
       can :manage, :all

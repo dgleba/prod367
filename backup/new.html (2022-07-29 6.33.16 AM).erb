@@ -6,9 +6,9 @@
     <%= f.input :email, required: false, autofocus: true %>  
     <%= f.input :password, required: false %>
     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-      <%#= I could not get this idea to work. 2022-07-29. DG. https://stackoverflow.com/questions/17464548/user-authentication-by-both-ldap-and-database  
-                    <label for="check_box_type">Login Server </label><%= select_tag :log, options_for_select([ [" Domain Server","domain"],["Local Server", "local"]]) %>
-      <%#= f.input :log, required: false %>
+    <%#= https://stackoverflow.com/questions/17464548/user-authentication-by-both-ldap-and-database  
+                   <label for="check_box_type">Login Server </label><%= select_tag :log, options_for_select([ [" Domain Server","domain"],["Local Server", "local"]]) %>
+    <%#= f.input :log, required: false %>
   </div>
 
   <div>

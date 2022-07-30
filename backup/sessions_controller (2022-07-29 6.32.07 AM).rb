@@ -10,8 +10,8 @@ class Users::SessionsController < Devise::SessionsController
   # Disable CSRF protection
   skip_before_action :verify_authenticity_token
 
-  def create_try_strategy_choice_noworky
-    # try to use both db and ldap. 2022-07-28. I could not get this to work. It only does ldap.
+  def create
+    # try to use both db and ldap. 2022-07-28...
     puts "entering sessions controller."
     @q2 = params[:user][:log]
     puts @q2
@@ -35,7 +35,8 @@ class Users::SessionsController < Devise::SessionsController
 
   
   # POST /resource/sign_in
-  def create
+  def create00
+    # pre 2022-07-28. 
 
     # This is the default behavior from devise - view the sessions controller source:
     # https://github.com/plataformatec/devise/blob/master/app/controllers/devise/sessions_controller.rb#L16

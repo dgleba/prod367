@@ -7,12 +7,18 @@
 # usage:    rails r passw.rb
 
 
+u=User.where(:email => 'dmilnedb').first
+u.password='dmilnedb'
+u.password_confirmation='dmilnedb'
+u.save!
+
 u=User.where(:email => 'a@e').first
-u.password='a'
-u.password_confirmation='a'
+u.password='abc'
+u.password_confirmation='abc'
 u.save!
 
 u=User.where(:email => 'a').first
-u.password='a'
-u.password_confirmation='a'
+u.password='abc'
+u.password_confirmation='abc'
 u.save!
+

@@ -4,7 +4,6 @@ class User < ActiveRecord::Base
 
   self.table_name = "users"
 
-  # :log was used for one try at chosing login strategy. noworky.
   attr_accessor :log
 
   # Include default devise modules. Others available are:
@@ -20,7 +19,8 @@ class User < ActiveRecord::Base
   #     puts 'v2'
     # Include default devise modules. Others available are:
     # :confirmable,  and :omniauthable , :timeoutable, :validatable, :rememberable, :lockable, :registerable, :recoverable
-    devise :ldap_authenticatable, :database_authenticatable,
+    # :database_authenticatable, :ldap_authenticatable, 
+    devise   :ldap_authenticatable, 
       :trackable
   elsif
     devise :database_authenticatable,

@@ -18,10 +18,14 @@ Devise.setup do |config|
   
   config.warden do |manager|
    # Registering your new Strategy
+   
    manager.strategies.add(:jwt, Devise::Strategies::JsonWebToken)
    # Adding the new JWT Strategy to the top of Warden's list,
    # Scoped by what Devise would scope (typically :user)
    manager.default_strategies(scope: :user).unshift :jwt
+   
+   # https://github.com/cschiewek/devise_ldap_authenticatable/issues/24 both ldap and database..
+   manager.default_strategies(:scope => :user).unshift :devise_ldap_db_override
   end
   
 
@@ -180,7 +184,7 @@ Devise.setup do |config|
 
   # ==> Configuration for :validatable
   # Range for password length.
-  config.password_length = 4..128
+  config.password_length = 3..128
 
   # Email regex used to validate email formats. It simply asserts that
   # one (and only one) @ exists in the given string. This is mainly

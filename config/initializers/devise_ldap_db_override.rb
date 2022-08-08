@@ -28,10 +28,10 @@ module Devise
           # no: https://stackoverflow.com/questions/44778304/how-can-i-compare-decrypted-password-and-encrypted-password-by-bcrypt-gem
           #   if user && user.encrypted_password == params[:user][:password]
           #   if user && BCrypt::Password.new(user.encrypted_password) == params[:user][:password]
-          #   if user && user.email == params[:user][:password]
           #   if user && BCrypt::Password.new(user.encrypted_password) == BCrypt::Password.new(params[:user][:password])
-
+          
           if user && User.find_by_email(params[:user][:email]).valid_password?(params[:user][:password])
+          #   if user && user.email == params[:user][:password]
             success!(user)
           else
             fail

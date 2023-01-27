@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 gem 'figaro' # switched from dotenv
 
-gem 'rails', '~> 5.0.2'
+gem 'rails', '~> 5.0.7'
 
 # gem 'dotenv-rails', :github => "bkeepers/dotenv" # i had trouble getting this to work. see figaro
 
@@ -14,7 +14,7 @@ end
 gem 'mysql2'
 gem 'sqlite3'
 gem 'puma', '~> 3.0'
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 6.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
@@ -25,7 +25,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'pry-rails'
-  gem 'rspec-rails', '~> 3.5'
+  gem 'rspec-rails', '~> 4.1'
   gem 'shoulda-matchers'
   gem 'capybara'
   gem 'factory_girl_rails'
